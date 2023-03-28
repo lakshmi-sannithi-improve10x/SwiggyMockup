@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SwiggyMockup"
         tools:targetApi="31">
         <activity
-            android:name=".SwiggySixthActivity"
+            android:name=".SwiggySecondActivity"
             android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -23,13 +23,22 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".SwiggyFirstActivity"
+            android:name=".SwiggySeventhActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SwiggyFourthActivity"
             android:exported="false">
 
         </activity>
         <activity
+            android:name=".SwiggySixthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SwiggyFirstActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

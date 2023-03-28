@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class SwiggySixthActivity extends AppCompatActivity {
     public SwiggySixthItems[] swiggySixthItems;
@@ -18,6 +19,16 @@ public class SwiggySixthActivity extends AppCompatActivity {
         createFoodItemsData();
         setupAdapter();
         connectAdapter();
+        setupAdapterClickListener();
+    }
+
+    private void setupAdapterClickListener() {
+        adapter.clickListener = new OnSwiggySixthItemClickListener() {
+            @Override
+            public void onSwiggyItemClick(SwiggySixthItems item) {
+                Toast.makeText(SwiggySixthActivity.this, item.imageUrl, Toast.LENGTH_SHORT).show();
+            }
+        };
     }
 
     private void connectAdapter() {

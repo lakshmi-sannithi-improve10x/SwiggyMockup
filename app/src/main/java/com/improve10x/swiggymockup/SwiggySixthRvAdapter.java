@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 public class SwiggySixthRvAdapter extends RecyclerView.Adapter<SwiggySixthRvViewHolder> {
     public SwiggySixthItems[] items;
+    OnSwiggySixthItemClickListener clickListener;
     public SwiggySixthRvAdapter(SwiggySixthItems[] swiggySixthItems){
         items = swiggySixthItems;
     }
@@ -32,6 +33,9 @@ public class SwiggySixthRvAdapter extends RecyclerView.Adapter<SwiggySixthRvView
       holder.ratingTxt.setText(item.rating);
       holder.timeTxt.setText(item.time);
         Picasso.get().load(item.imageUrl).into(holder.imageUrlIv);
+        holder.itemView.setOnClickListener(view -> {
+          clickListener.onSwiggyItemClick(item);
+        });
     }
 
     @Override

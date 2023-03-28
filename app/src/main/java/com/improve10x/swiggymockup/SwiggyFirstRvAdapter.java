@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 public class SwiggyFirstRvAdapter extends RecyclerView.Adapter<SwiggyFirstRvViewHolder> {
     public SwiggyFirstItems[] items;
+    OnSwiggyItemClickListner clickListner;
     public SwiggyFirstRvAdapter(SwiggyFirstItems[] swiggyFirstItems){
         items = swiggyFirstItems;
     }
@@ -32,6 +33,9 @@ public class SwiggyFirstRvAdapter extends RecyclerView.Adapter<SwiggyFirstRvView
         holder.ratingTxt.setText(item.rating);
         holder.timeTxt.setText(item.time);
         Picasso.get().load(item.imageUrl).into(holder.imageUrlIv);
+        holder.itemView.setOnClickListener(view -> {
+           clickListner.onSwiggyItemClick(item);
+        });
     }
 
     @Override
