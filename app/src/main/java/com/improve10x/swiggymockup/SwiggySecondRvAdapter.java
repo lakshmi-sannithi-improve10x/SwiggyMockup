@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SwiggySecondRvAdapter extends RecyclerView.Adapter<SwiggySecondRvViewHolder> {
     public SwiggySecondItems[] items;
+    SwiggySecondItemActionListener actionListener;
     public SwiggySecondRvAdapter(SwiggySecondItems[] swiggySecondItems){
         items = swiggySecondItems;
     }
@@ -27,7 +28,23 @@ public class SwiggySecondRvAdapter extends RecyclerView.Adapter<SwiggySecondRvVi
      holder.foodNameTxt.setText(item.foodName);
      holder.descriptionTxt.setText(item.description);
      holder.costTxt.setText(item.cost);
-    }
+     if (item.itemCount == 0){
+         holder.minusBtn.setVisibility(View.GONE);
+         holder.itemCountTxt.setVisibility(View.GONE);
+     }else {
+         holder.itemCountTxt.setText(item.itemCount + "");
+         holder.minusBtn.setVisibility(View.VISIBLE);
+         holder.itemCountTxt.setVisibility(View.VISIBLE);
+     }
+         holder.addBtn.setOnClickListener(view -> {
+            actionListener.onAddClicked(item);
+         });
+
+         holder.minusBtn.setOnClickListener(view -> {
+             actionListener.onRemoveClicked(item);
+         });
+     }
+
 
     @Override
     public int getItemCount() {

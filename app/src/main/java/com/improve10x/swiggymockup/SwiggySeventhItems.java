@@ -1,8 +1,7 @@
 package com.improve10x.swiggymockup;
 
-public class SwiggySecondItems {
+public class SwiggySeventhItems {
     public String foodName;
     public String description;
-    public String cost;
-    public int itemCount;
+    public String time;
 }

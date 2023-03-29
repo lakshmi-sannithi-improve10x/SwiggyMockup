@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,20 +19,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/foodname_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/description_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/time_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView" />
@@ -39,6 +44,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -46,13 +52,16 @@
             android:id="@+id/button13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel Order" />
+            android:backgroundTint="#FBFAFA"
+            android:text="Cancel Order"
+            android:textColor="#7A7676" />
 
         <Button
             android:id="@+id/button14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:backgroundTint="#FF5722"
             android:text="Track" />
     </LinearLayout>
 </LinearLayout>
