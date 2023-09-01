@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 public class SwiggyFourthActivity extends AppCompatActivity {
-   public    SwiggyFourthItems[] swiggyFourthItems;
    RecyclerView soupRv;
-   public SwiggyFourthRvAdapter adapter;
+   public SwiggySecondItems[] swiggySecondItems;
+   public SwiggySecondRvAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,16 +18,35 @@ public class SwiggyFourthActivity extends AppCompatActivity {
         createSoupData();
         setupAdapter();
         connectAdapter();
+        setupActionListener();
 
+    }
+
+    private void setupActionListener() {
+        adapter.actionListener = new SwiggySecondItemActionListener() {
+            @Override
+            public void onAddClicked(SwiggySecondItems item) {
+                item.itemCount ++;
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onRemoveClicked(SwiggySecondItems item) {
+                  item.itemCount --;
+                  adapter.notifyDataSetChanged();
+            }
+        };
     }
 
     private void connectAdapter() {
         soupRv.setLayoutManager(new LinearLayoutManager(this));
         soupRv.setAdapter(adapter);
+
     }
 
     private void setupAdapter() {
-        adapter = new SwiggyFourthRvAdapter(swiggyFourthItems);
+        adapter = new SwiggySecondRvAdapter(swiggySecondItems);
+
     }
 
     private void initViews() {
@@ -35,46 +54,38 @@ public class SwiggyFourthActivity extends AppCompatActivity {
     }
 
     private void createSoupData() {
-        swiggyFourthItems = new SwiggyFourthItems[8];
+        swiggySecondItems = new SwiggySecondItems[5];
 
-        swiggyFourthItems[0] = new SwiggyFourthItems();
-        swiggyFourthItems[0].soupName = "Broccoli Parmesan Chicken soup";
-        swiggyFourthItems[0].description = "A vibrant soup that will be a delight for the whole family";
-        swiggyFourthItems[0].cost = "$160";
+        swiggySecondItems[0] = new SwiggySecondItems();
+        swiggySecondItems[0].foodName = "Shawarma Roll";
+        swiggySecondItems[0].description = "Meat  cut into thin slices and stuffed in Kuboos";
+        swiggySecondItems[0].cost = "$80";
+        swiggySecondItems[0].itemCount = 0;
 
-        swiggyFourthItems[1] = new SwiggyFourthItems();
-        swiggyFourthItems[1].soupName = "Chicken & Vegetable soup";
-        swiggyFourthItems[1].description = "This soup is ultra - comforting and packed with the healthy vegetables";
-        swiggyFourthItems[1].cost = "$110";
+        swiggySecondItems[1] = new SwiggySecondItems();
+        swiggySecondItems[1].foodName = "Shawarma Plate";
+        swiggySecondItems[1].description = "Meat  cut into thin slices and served with Kuboos";
+        swiggySecondItems[1].cost = "$130";
+        swiggySecondItems[1].itemCount = 0;
 
-        swiggyFourthItems[2] = new SwiggyFourthItems();
-        swiggyFourthItems[2].soupName = "Cream of Chicken soup";
-        swiggyFourthItems[2].description = "This is made with milk and chicken broth that's thickened with a butter and flour roux";
-        swiggyFourthItems[2].cost = "$120";
+        swiggySecondItems[2] = new SwiggySecondItems();
+        swiggySecondItems[2].foodName = " Special Shawarma Roll";
+        swiggySecondItems[2].description = "Meat  cut into thin slices and styffed with special sauce";
+        swiggySecondItems[2].cost = "$100";
+        swiggySecondItems[2].itemCount = 0;
 
-        swiggyFourthItems[3] = new SwiggyFourthItems();
-        swiggyFourthItems[3].soupName = "Ham & Chickpea soup";
-        swiggyFourthItems[3].description = "Ham, vegetables and chickpeas, this hearty  soup is loaded with good for you flavor.";
-        swiggyFourthItems[3].cost = "$160";
+        swiggySecondItems[3] = new SwiggySecondItems();
+        swiggySecondItems[3].foodName = " Special Shawarma Plate";
+        swiggySecondItems[3].description = "Meat  cut into thin slices and served with Kuboos and sapecial sauce";
+        swiggySecondItems[3].cost = "$140";
+        swiggySecondItems[3].itemCount = 0;
 
-        swiggyFourthItems[4] = new SwiggyFourthItems();
-        swiggyFourthItems[4].soupName = "Minestrone soup";
-        swiggyFourthItems[4].description ="A classic, hearty tallan soup with tomatoes white beans, vegetables and pasta" ;
-        swiggyFourthItems[4].cost = "$140";
+        swiggySecondItems[4] = new SwiggySecondItems();
+        swiggySecondItems[4].foodName = "Shawarma Roll";
+        swiggySecondItems[4].description = "Meat  cut into thin slices and stuffed in Kuboos";
+        swiggySecondItems[4].cost = "$120";
+        swiggySecondItems[4].itemCount = 0;
 
-        swiggyFourthItems[5] = new SwiggyFourthItems();
-        swiggyFourthItems[5].soupName = "Mushroom soup";
-        swiggyFourthItems[5].description ="This soup is made with cream, onions,garlic" ;
-        swiggyFourthItems[5].cost = "$90";
 
-        swiggyFourthItems[6] = new SwiggyFourthItems();
-        swiggyFourthItems[6].soupName = "Broccoli Parmesan Chicken soup";
-        swiggyFourthItems[6].description = "A vibrant soup that will be a delight for the whole family";
-        swiggyFourthItems[6].cost = "$160";
-
-        swiggyFourthItems[7] = new SwiggyFourthItems();
-        swiggyFourthItems[7].soupName = "Broccoli Parmesan Chicken soup";
-        swiggyFourthItems[7].description = "A vibrant soup that will be a delight for the whole family";
-        swiggyFourthItems[7].cost = "$160";
     }
 }
